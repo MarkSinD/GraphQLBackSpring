@@ -1,0 +1,28 @@
+scalar Upload
+
+type Vehicle {
+    id: ID!,
+    type: String,
+    modelCode: String,
+    brandName: String,
+    launchDate: String
+}
+
+type Person {
+    id: ID!,
+    firstName: String,
+    avatar: String
+}
+
+type Query {
+    vehicles(count: Int):[Vehicle]
+    vehicle(id: ID):Vehicle
+    person(id: ID):Person
+
+}
+type Mutation {
+    createVehicle(type: String!, modelCode: String!, brandName: String, launchDate: String):Vehicle
+    createPerson(firstName: String!):Person
+    createPersonWithId(id: ID!, firstName: String!):String
+    update(file: Upload!): Person
+}
